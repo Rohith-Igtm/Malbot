@@ -1,6 +1,7 @@
 from telethon import TelegramClient, events
 from ai_parser import extract_movie_info
 from tmdb import verify_malayalam_movie
+from telethon.sessions import StringSession
 import os
 
 import asyncio
@@ -28,8 +29,12 @@ DESTINATION_CHANNEL = os.getenv("CHANNEL_LINK")
 # CREATE CLIENT
 # =========================
 
+session_string = os.getenv(
+    "SESSION_STRING"
+)
+
 client = TelegramClient(
-    "Malbot",
+    StringSession(session_string),
     api_id,
     api_hash
 )
@@ -171,6 +176,5 @@ async def handler(event):
 
 print("\n🚀 Malayalam Movie Agent Running...")
 
-client.start()
 
 client.run_until_disconnected()
