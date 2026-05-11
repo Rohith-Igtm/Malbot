@@ -174,7 +174,15 @@ async def handler(event):
 # START CLIENT
 # =========================
 
-print("\n🚀 Malayalam Movie Agent Running...")
+async def start_bot():
 
-client.connect()
-client.run_until_disconnected()
+    print("\n🚀 Malayalam Movie Agent Running...")
+
+    await client.connect()
+
+    await client.run_until_disconnected()
+
+
+client.loop.run_until_complete(
+    start_bot()
+)
