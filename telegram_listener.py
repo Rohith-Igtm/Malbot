@@ -176,5 +176,5 @@ async def handler(event):
 
 print("\n🚀 Malayalam Movie Agent Running...")
 
-
+client.connect()
 client.run_until_disconnected()
